@@ -2,23 +2,21 @@ import program_12_2
 import unittest
 
 class RunnerTest(unittest.TestCase):
-    def __init__(self):
-        super().__init__()
-        self.is_frozen = False
+    is_frozen = False
 
-    @unittest.skipIf(True, 'Тесты в этом кейсе заморожены')
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_runner1(self):
         runner1 = program_12_2.Runner('Usain', speed=10)
         runner1.run()
         self.assertEqual(runner1.distance, 20)
 
-    @unittest.skipIf(True, 'Тесты в этом кейсе заморожены')
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_runner2(self):
         runner2 = program_12_2.Runner('Andry', speed=9)
         runner2.run()
         self.assertEqual(runner2.distance, 18)
 
-    @unittest.skipIf(True, 'Тесты в этом кейсе заморожены')
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_runner3(self):
         runner3 = program_12_2.Runner('Nick', speed=3)
         runner3.run()
@@ -27,9 +25,7 @@ class RunnerTest(unittest.TestCase):
 
 
 class TournamentTest(unittest.TestCase):
-    def __init__(self):
-        super().__init__()
-        self.is_frozen = True
+    is_frozen = True
 
     @classmethod
     def setUpClass(cls):
@@ -49,21 +45,21 @@ class TournamentTest(unittest.TestCase):
         self.runner3 = program_12_2.Runner('Nick', speed=3)
 
 
-    @unittest.skipIf(True, 'Тесты в этом кейсе заморожены')
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_run1(self):
         championship1 = program_12_2.Tournament(90, self.runner1, self.runner3)
         result1 = championship1.start()
         self.all_result.append({place: name for place, name in result1.items()})
         self.assertTrue(result1[2] == 'Nick')
 
-    @unittest.skipIf(True, 'Тесты в этом кейсе заморожены')
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_run2(self):
         championship2 = program_12_2.Tournament(90, self.runner2, self.runner3)
         result2 = championship2.start()
         self.all_result.append({place: name for place, name in result2.items()})
         self.assertTrue(result2[2] == 'Nick')
 
-    @unittest.skipIf(True, 'Тесты в этом кейсе заморожены')
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_run3(self):
         championship3 = program_12_2.Tournament(90, self.runner1, self.runner2, self.runner3)
         result3 = championship3.start()
